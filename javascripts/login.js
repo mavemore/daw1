@@ -11,6 +11,8 @@ function init(){
 			window.location.href = "usuarios.html";
 		}else if( tipoUsuario == "Operario"){
 			window.location.href = "operarios.html";
+		}else{
+			window.location.href = "laboratorista.html";
 		}
 	});
 }
