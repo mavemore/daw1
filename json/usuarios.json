@@ -1,0 +1,9 @@
+[{"usuario":"mavemore",
+  "nombres": "Maria Veronica",
+  "apellidos":"Moreira Apolo",
+  "cedula":"1721989364",
+  "correo":"mvmc@xmail.com",
+  "direccion":"x mz villa y",
+  "telefono":["telefono1", "telefono2"],
+  "foto":"imagenes/fotousuario1.png"
+  }]

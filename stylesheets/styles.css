@@ -1,0 +1,22 @@
+header{
+	padding: 1%;
+}
+
+header button{
+	bottom: 0;
+}
+
+footer{
+	width:100%;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+.row{
+	padding: 3% 0;
+}
+
+.nav-pills li{
+	background-color: #b6cee3;
+}

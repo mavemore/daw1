@@ -1,0 +1,16 @@
+[{"nombre": "Centro 1",
+  "horarios": ["8:00", "20:00"],
+  "direccion": "direccion 1",
+  "descripcion": "descripcion 1",
+  "latitud":"-30",
+  "longitud":"-79",
+  "imagenes":["imagenes/centro1.png"]
+  },
+  { "nombre": "Centro 2",
+    "horarios": ["7:30", "21:00"],
+    "direccion": "direccion 2",
+    "descripcion": "descripcion 2",
+    "latitud":"-30",
+    "longitud":"-79",
+    "imagenes":["imagenes/centro2.png"]
+}]
