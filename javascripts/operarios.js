@@ -9,13 +9,9 @@ function init(){
 	});
 	
 	$(function() {
-		$('#pickDesde').datetimepicker({
-		  pickTime: false
-		});
+		$( "#pickDesde" ).datepicker();
 	});
 	$(function() {
-		$('#pickHasta').datetimepicker({
-		  pickTime: false
-		});
+		$( "#pickHasta" ).datepicker();
 	});
 }
