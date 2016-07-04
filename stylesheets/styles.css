@@ -26,3 +26,15 @@ footer{
 	height: 50%;
 	margin: 5% 40%;
 }
+
+.form-group {
+	margin: 1%;
+}
+
+.panel-primary{
+	margin:1%;
+}
+
+.btn-primary{
+	margin:1% 40%;
+}
