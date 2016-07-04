@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-		<title>SaludPrimero S.A</title>
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen"
+     href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+  	<link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+	<title>SaludPrimero S.A</title>
 	</head>
 	<body>
 		<header class="container-fluid bg-primary">
@@ -27,10 +30,63 @@
 				</nav>
 				<section class="col-md-9">
 					<div class="panel panel-default">
-					  <div class="panel-heading">
-						<h3 class="panel-title">Reportes</h3>
-					  </div>
 					  <div class="panel-body">
+						<div id="filtros" class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Filtros</h3>
+							</div>
+							<div class="panel-body">
+								<form class="form-inline">
+								  <div class="form-group">
+									<label for="eslimitadoFecha" class="control-label">&iquest;Limitar por Fecha?</label>
+									<div class="checkbox">
+									  <label>
+										<input type="checkbox" value="">
+									  </label>
+									</div>
+								</div>
+								</form>
+								<form class="form-inline">
+									<div class="form-group">
+										<label for="fechaDesde" class="control-label">Fecha Desde:</label>
+										<div id="pickDesde" class="input-append">
+											<input data-format="yyyy-MM-dd" type="text"></input>
+											<span class="add-on">
+											  <i data-date-icon="icon-calendar">
+											  </i>
+											</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="fechaHasta" class="control-label">Fecha Hasta:</label>
+										<div id="pickHasta" class="input-append">
+											<input data-format="yyyy-MM-dd" type="text"></input>
+											<span class="add-on">
+											  <i data-date-icon="icon-calendar">
+											  </i>
+											</span>
+										</div>
+									</div>
+								</form>
+								<form class="form-inline">
+									<div class="form-group">
+										<label for="enfermedad" class="control-label">Enfermedad:</label>
+										<select class="form-control" id="enfermedad">
+										  <option>Todas</option>
+										</select>
+									</div>
+								</form>
+								<form class="form-inline">
+									<div class="form-group">
+										<label for="laboratorio" class="control-label">Laboratorio:</label>
+										<select class="form-control" id="laboratorio">
+										  <option>Todos</option>
+										</select>
+									</div>
+								</form>
+							</div>
+						</div>
+						<button type="button" class="btn btn-primary">Generar Reporte</button>
 					  </div>
 					</div>
 				</section>
@@ -43,4 +99,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script type="text/javascript" src="javascripts/operarios.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script type="text/javascript"
+     src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+    </script> 
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
 </html>

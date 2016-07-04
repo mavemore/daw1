@@ -13,6 +13,10 @@ footer{
 	left:0;
 }
 
+label{
+	font-weight: bold;
+}
+
 .row{
 	padding: 3% 0;
 }
@@ -37,4 +41,7 @@ footer{
 
 .btn-primary{
 	margin:1% 40%;
+}
+.input-append input{
+	height: 100%;
 }
