@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	init();
+	cargarDatos();
 });
 
 
@@ -9,11 +10,9 @@ function init(){
 		window.location.href = "index.html";
 	});
 	$("#info-lateral button").click(editarDatos);
-	cargarDatosExamenes();
-	cargarDatosUsuario();
 }
 
-function cargarDatosExamenes(){
+function cargarDatos(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 			if(xhttp.readyState == 4 && xhttp.status == 200){
@@ -62,36 +61,11 @@ function cargarDatosExamenes(){
 
 function editarDatos(){
 	var inp = $(".form-group input").get();
+	for(i=0;i<inp.length;i++)
+		inp[i].attr('readonly', !inp[i].attr('readonly'));
 	if($('#info-cliente').hasClass("consulta")){
-		for(i=0;i<inp.length;i++){
-			inp[i].removeAttribute("readonly");
-		}
-		$('#info-cliente').removeClass("consulta");
-		$("#btnEditar small").text("Guardar Cambios");
-		$("#btnEditar span").hide();
+
 	}else{
-		guardarCambios();
-		location.reload();
+		
 	}
-}
-
-function cargarDatosUsuario(){
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function(){
-		if(xhttp.readyState == 4 && xhttp.status == 200){
-			var json = JSON.parse(xhttp.responseText);
-			console.log(json);
-			json.forEach(function(usuario){
-				if(usuario.nomusuario == "mavemore"){
-					$("#nombreUsuario").text(usuario.nombres);
-				}
-			}
-		}
-	};
-	xhttp.open("GET","json/usuarios.json", true);
-	xhttp.send();
-}
-
-function guardarCambios(){
-	
 }
