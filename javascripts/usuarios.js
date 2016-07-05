@@ -9,6 +9,7 @@ function init(){
 	{
 		window.location.href = "index.html";
 	});
+	$("#info-lateral button").click(editarDatos);
 }
 
 function cargarDatos(){
@@ -56,4 +57,15 @@ function cargarDatos(){
 		
 		xhttp.open("GET","json/examenes.json", true);
 		xhttp.send();
+}
+
+function editarDatos(){
+	var inp = $(".form-group input").get();
+	for(i=0;i<inp.length;i++)
+		inp[i].attr('readonly', !inp[i].attr('readonly'));
+	if($('#info-cliente').hasClass("consulta")){
+
+	}else{
+		
+	}
 }
