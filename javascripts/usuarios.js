@@ -1,7 +1,8 @@
 $(document).ready(function(){
-	init();
 	cargarDatosExamenes();
 	cargarDatosUsuario();
+	cargarCentros();
+	init();
 });
 
 
@@ -11,6 +12,7 @@ function init(){
 		window.location.href = "index.html";
 	});
 	$("#info-lateral button").click(editarDatos);
+	$("#info-med").hide();
 }
 
 function cargarDatosExamenes(){
@@ -18,7 +20,6 @@ function cargarDatosExamenes(){
 	xhttp.onreadystatechange = function(){
 			if(xhttp.readyState == 4 && xhttp.status == 200){
 				var json = JSON.parse(xhttp.responseText);
-				console.log(json);
 					var tabla = document.getElementById("tblExamen");
 					
 					json.forEach(function(examen){
@@ -80,7 +81,6 @@ function cargarDatosUsuario(){
 	xhttp.onreadystatechange = function(){
 		if(xhttp.readyState == 4 && xhttp.status == 200){
 			var json = JSON.parse(xhttp.responseText);
-			console.log(json);
 			json.forEach(function(usuario){
 				if(usuario.nomusuario == "mavemore"){
 					$("#nombreUsuario").val(usuario.nombres);
@@ -95,6 +95,48 @@ function cargarDatosUsuario(){
 		}
 	};
 	xhttp.open("GET","json/usuarios.json", true);
+	xhttp.send();
+}
+
+function mostrarCentro(){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(xhttp.readyState == 4 && xhttp.status == 200){
+			var json = JSON.parse(xhttp.responseText);
+			json.forEach(function(centro){
+				if(centro.nombre == $(".dropdown-menu li a[class='active']").text()){
+					$("#nomCentro").text(centro.nombre);
+					$("#horarioCentro").text(centro.horarios);
+					$("#dirCentro").text(centro.direccion);
+					$("#descripCentro").text(centro.descripcion);
+				}
+			});
+		}
+	};
+	xhttp.open("GET","json/centros.json", true);
+	xhttp.send();
+	$("#info-med").show();
+}
+
+function cargarCentros(){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(xhttp.readyState == 4 && xhttp.status == 200){
+			var json = JSON.parse(xhttp.responseText);
+			var ul = $(".dropdown-menu");
+			json.forEach(function(centro){
+					var txt = centro.nombre;
+					ul.append($('<li>').append($('<a>').attr('href','#').text(txt)));
+					$(".dropdown-menu li a").click(function(){
+						$(".dropdown-menu li a[class='active']").removeClass("active");
+						$(this).addClass("active");
+						mostrarCentro();
+						$("#dropdownMenu1").text($(this).text());
+					});
+			});
+		}
+	};
+	xhttp.open("GET","json/centros.json", true);
 	xhttp.send();
 }
 

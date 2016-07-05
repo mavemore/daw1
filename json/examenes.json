@@ -1,4 +1,4 @@
 [{"fecha": {"dia":2,"mes":10,"anio":2016},
-  "examenes": [{"nombre":"examen1", "prueba":true, "resultado":"..."}, {"nombre":"examen2", "prueba":false, "resultado":""}],
+  "examenes": [{"nombre":"Hemograma", "prueba":true, "resultado":"..."}, {"nombre":"Prueba parasitos", "prueba":false, "resultado":""}],
     "estado":"pendiente"
   }]
