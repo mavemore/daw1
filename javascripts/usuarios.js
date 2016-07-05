@@ -1,7 +1,5 @@
 $(document).ready(function(){
 	init();
-	cargarDatosExamenes();
-	cargarDatosUsuario();
 });
 
 
@@ -11,6 +9,8 @@ function init(){
 		window.location.href = "index.html";
 	});
 	$("#info-lateral button").click(editarDatos);
+	cargarDatosExamenes();
+	cargarDatosUsuario();
 }
 
 function cargarDatosExamenes(){
@@ -82,7 +82,6 @@ function cargarDatosUsuario(){
 			var json = JSON.parse(xhttp.responseText);
 			console.log(json);
 			json.forEach(function(usuario){
-				console.log(usuario.nomusuario)
 				if(usuario.nomusuario == "mavemore"){
 					$("#nombreUsuario").text(usuario.nombres);
 				}
