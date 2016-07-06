@@ -153,4 +153,5 @@ function generarCodigo(){
 	$("#fade").addClass("disabled");
 	$("#fade").fadeTo(500,.25);
 	$("#codigoGen").show();
+	$("#bcTarget").barcode("1234567890128", "ean13",{barWidth:2, barHeight:30});
 }
