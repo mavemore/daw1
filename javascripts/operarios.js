@@ -10,9 +10,11 @@ function init(){
 		window.location.href = "index.html";
 	});
 	$(".fades-in").hide();
+	$("#codigoGen").hide();
 	$("#btnBuscarId").click(cargarNombre);
 	$("#btnBuscar").click(buscarMuestra);
 	$("#btnEditarExam").click(editarExamenes);
+	$("#btnCodigo").click(generarCodigo);
 	$(".btnTemporal").click(volverNormal);
 	$(".fechaForm").hide();
 	$(".checkbox label input").click(mostrarFechas);
@@ -63,8 +65,7 @@ function cargarNombre(){
 function buscarMuestra(){
 	var hid = $(".hidden");
 	for(i=0;i<hid.length;i++){
-		console.log(hid[i]);
-		hid[i].className =- "hidden";
+		hid[i].classList.remove("hidden");
 	}
 	$(".table td").remove();
 	var xhttp = new XMLHttpRequest();
@@ -145,4 +146,11 @@ function volverNormal(){
 	$("#fade").removeClass("disabled");
 	$("#fade").fadeTo(500,1);
 	$(".fades-in").hide();
+	$("#codigoGen").hide();
+}
+
+function generarCodigo(){
+	$("#fade").addClass("disabled");
+	$("#fade").fadeTo(500,.25);
+	$("#codigoGen").show();
 }

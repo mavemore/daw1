@@ -91,7 +91,7 @@
 									</form>
 								</div>
 							</div>
-							<button type="button" class="btn btn-primary">Generar C&oacute;digo</button>
+							<button type="button" class="btn btn-primary" id="btnCodigo"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> Generar C&oacute;digo</button>
 						  </div>
 						</div>
 					</section>
@@ -127,7 +127,25 @@
 				</div>
 			</div>
 		</div>
-		
+		<div id="codigoGen">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">C&oacute;digo Generado</h3>
+				</div>
+				<div class="panel-body">
+					<div id="barraCodigo">
+					</div>
+					<div class="btn-group row">
+						<div class="col-md-6">
+							<button type="button" class="btn btn-primary btnTemporal" id="btnOk">Ok</button>
+						</div>
+						<div class="col-md-6">
+							<button type="button" class="btn btn-primary" id="iconPrint"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script type="text/javascript" src="javascripts/operarios.js"></script>
