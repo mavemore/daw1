@@ -19,6 +19,7 @@ function init(){
 	$("#btnCodigo").click(generarCodigo);
 	$("#btnDescartar").click(volverNormal);
 	$("#btnGuardar").click(guardarExamenes);
+	$("#btnOk").click(volverNormal);
 	$(".checkbox label input").click(mostrarFechas);
 	$(function() {
 		$("#pickDesde").datepicker();
