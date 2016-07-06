@@ -128,7 +128,7 @@ function cargarCentros(){
 					var txt = centro.nombre;
 					ul.append($('<li>').append($('<a>').attr('href','#').text(txt)));
 					$(".dropdown-menu li a").click(function(){
-						$(".dropdown-menu li a[class='active']").removeClass("active");
+						$(".panel-body .active").removeClass("active");
 						$(this).addClass("active");
 						mostrarCentro();
 						$("#dropdownMenu1").text($(this).text());
@@ -141,5 +141,17 @@ function cargarCentros(){
 }
 
 function guardarCambios(){
-	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(xhttp.readyState == 4 && xhttp.status == 200){
+			var json = JSON.parse(xhttp.responseText);
+			json.forEach(function(usuario){
+				if(usuario.nomusuario == "mavemore"){
+					usuario.nombres = $("#nombreUsuario").text();
+				}
+			});
+		}
+	};
+	xhttp.open("POST","json/usuarios.json", true);
+	xhttp.send();
 }
