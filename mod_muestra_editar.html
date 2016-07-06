@@ -10,96 +10,123 @@
 		<title>SaludPrimero S.A</title>
 	</head>
 	<body>
-		<header class="container-fluid bg-primary">
-			<h1>SaludPrimero S.A</h1>
-			<button type="button" class="btn btn-default btn-lg pull-right">
-			  <span class="glyphicon glyphicon-off" aria-hidden="true"></span> <small>Salir</small>
-			</button>
-		</header>
-		<div class="container-fluid">
-			<div class="row">
-				<nav class="col-md-3">
-					<ul class="nav nav-pills nav-stacked">
-					  <li role="presentation"><a href="ingreso_muestra.html">Ingreso Muestra</a></li>
-					  <li role="presentation" class="active"><a href="mod_muestra.html">Modificar Muestra</a></li>
-					  <li role="presentation"><a href="reportes.html">Generar Reporte</a></li>
-					</ul>
-				</nav>
-				<section class="col-md-9">
-					<div class="panel panel-default">
-					  <div class="panel-body">
-						<div id="paciente" class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title">Paciente</h3>
-							</div>
-							<div class="panel-body">
-								<form class="form-inline">
-									<div class="form-group">
-										<label for="nombrePaciente" class="control-label">Nombre:</label>
-										<input class="form-control" id="nombrePaciente" type="text" readonly>
-									</div>
-									<div class="form-group">
-										<label for="apellidoPaciente" class="control-label">Apellido:</label>
-										<input class="form-control" id="apellidoPaciente" type="text" readonly>
-									</div>
-								</form>
-							</div>
-						</div>
-						<div id="muestra" class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title">Muestra</h3>
-							</div>
-							<div class="panel-body">
-								<form class="form-inline">
-									<div class="form-group">
-										<label for="centromed" class="control-label">Centro M&eacute;dico:</label>
-										<select class="form-control" id="centromed">
-										</select>
-									</div>
-								</form>
-								<div class="form-group">
-									<label class="control-label">Ex&aacute;menes a realizar:</label>
-									<button type="submit" class="btn btn-default" id="btnBuscarId"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
-									<div class="panel panel-primary">
-										
-										<table class="table">
-											<tr>
-												<th>Fecha Toma Muestra</th>
-												<th>Tipo Examen</th>
-											</tr>
-											<tr>
-												<td>13/04/2016</td>
-												<td>Examen1</td>
-											</tr>
-										</table>
-									</div>
+		<div id="fade">
+			<header class="container-fluid bg-primary">
+				<h1>SaludPrimero S.A</h1>
+				<button type="button" class="btn btn-default btn-lg pull-right">
+				  <span class="glyphicon glyphicon-off" aria-hidden="true"></span> <small>Salir</small>
+				</button>
+			</header>
+			<div class="container-fluid">
+				<div class="row">
+					<nav class="col-md-3">
+						<ul class="nav nav-pills nav-stacked">
+						  <li role="presentation"><a href="ingreso_muestra.html">Ingreso Muestra</a></li>
+						  <li role="presentation" class="active"><a href="mod_muestra.html">Modificar Muestra</a></li>
+						  <li role="presentation"><a href="reportes.html">Generar Reporte</a></li>
+						</ul>
+					</nav>
+					<section class="col-md-9">
+						<div class="panel panel-default">
+						  <div class="panel-body">
+							<div id="paciente-edit" class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Paciente</h3>
 								</div>
-								<form class="form-inline">
+								<div class="panel-body">
+									<form class="form-inline">
+										<div class="form-group">
+											<label for="nombrePaciente" class="control-label">Nombre:</label>
+											<input class="form-control" id="nombrePaciente-edit" type="text" readonly>
+										</div>
+										<div class="form-group">
+											<label for="apellidoPaciente" class="control-label">Apellido:</label>
+											<input class="form-control" id="apellidoPaciente-edit" type="text" readonly>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div id="muestra-edit" class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Muestra</h3>
+								</div>
+								<div class="panel-body">
+									<form class="form-inline">
+										<div class="form-group">
+											<label for="centromed" class="control-label">Centro M&eacute;dico:</label>
+											<select class="form-control" id="centromed-edit">
+											</select>
+										</div>
+									</form>
 									<div class="form-group">
-										<label for="laboratorio" class="control-label">Laboratorio:</label>
-										<select class="form-control" id="laboratorio">
-										  <option>Lab 1</option>
-										</select>
+										<label class="control-label">Ex&aacute;menes a realizar:</label>
+										<button type="submit" class="btn btn-default" id="btnEditarExam"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+										<div class="panel panel-primary">
+											
+											<table class="table">
+												<tr>
+													<th>Fecha Toma Muestra</th>
+													<th>Tipo Examen</th>
+												</tr>
+												<tr>
+													<td>13/04/2016</td>
+													<td>Examen1</td>
+												</tr>
+											</table>
+										</div>
 									</div>
-								</form>
+									<form class="form-inline">
+										<div class="form-group">
+											<label for="laboratorio" class="control-label">Laboratorio:</label>
+											<select class="form-control" id="laboratorio-edit">
+											  <option>Lab 1</option>
+											</select>
+										</div>
+									</form>
+								</div>
 							</div>
+							<div class="button-group row">
+								<div class="col-md-6">
+									<button class="btn btn-primary" type="button" id="btnDescartar-edit">Descartar</button>
+								</div>
+								<div class="col-md-6">
+									<button class="btn btn-primary" type="button" id="btnGuardar-edit">Guardar</button>
+								</div>
+							</div>
+						  </div>
 						</div>
-						<div class="button-group row">
-							<div class="col-md-6">
-								<button class="btn btn-primary" type="button" id="btnDescartar">Descartar</button>
-							</div>
-							<div class="col-md-6">
-								<button class="btn btn-primary" type="button" id="btnGuardar">Guardar</button>
-							</div>
-						</div>
-					  </div>
-					</div>
-				</section>
+					</section>
+				</div>
 			</div>
+			<footer class="container-fluid bg-primary">
+				<p class="text-center"><small>Derechos Resevados</small><p>
+			</footer>
 		</div>
-		<footer class="container-fluid bg-primary">
-			<p class="text-center"><small>Derechos Resevados</small><p>
-		</footer>
+		<div class="fades-in">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Selecci&oacute;n de Ex&aacute;menes</h3>
+				</div>
+				<div class="panel-body">
+					<div class="scroll">
+						<table>
+							<tr>
+								<th>Selecci&oacute;n</th>
+								<th>Fecha Toma Muestra</th>
+								<th>Tipo Examen</th>
+							</tr>
+						</table>
+					</div>
+					<div class="btn-group row">
+						<div class="col-md-6">
+							<button type="button" class="btn btn-primary btnTemporal" id="btnDescartar-edit">Descartar</button>
+						</div>
+						<div class="col-md-6">
+							<button type="button" class="btn btn-primary btnTemporal" id="btnGuardar-edit">Guardar</button>
+						</div>
+					</div>
+				</div>
+			</div>
 	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script type="text/javascript" src="javascripts/operarios.js"></script>

@@ -5,4 +5,12 @@
  "tipo":"Hemograma",
  "centroMed":"SaludPrimero Centro",
  "laboratorio":"..."
-}]
+},
+{"codigo":"000000000002",
+ "fecha":{"dia":1,"mes":12,"anio":2015},
+ "paciente":{"cedula":"1721989356","nombre":"Edgar","apellido":"Moreira"},
+ "estado":"pendiente",
+ "tipo":"Sonda",
+ "centroMed":"SaludPrimero Urdesa",
+ "laboratorio":"..."}
+]
