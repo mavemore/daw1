@@ -128,7 +128,7 @@ function cargarCentros(){
 					var txt = centro.nombre;
 					ul.append($('<li>').append($('<a>').attr('href','#').text(txt)));
 					$(".dropdown-menu li a").click(function(){
-						$(".panel-body .active").removeClass("active");
+						$(".dropdown-menu li a[class='active']").removeClass("active");
 						$(this).addClass("active");
 						mostrarCentro();
 						$("#dropdownMenu1").text($(this).text());

@@ -9,7 +9,7 @@ function init(){
 		window.location.href = "index.html";
 	});
 	$("#btnBuscarId").click(cargarNombre);
-	$("#btnElim").click(buscarMuestra);
+	$("#btnBuscar").click(buscarMuestra);
 	$(function() {
 		$( "#pickDesde" ).datepicker();
 	});
@@ -55,5 +55,9 @@ function cargarNombre(){
 }
 
 function buscarMuestra(){
-	$(".dropdown-menu li a[class='hidden']").removeClass("hidden");
+	var hid = $(".hidden");
+	for(i=0;i<hid.length;i++){
+		console.log(hid[i]);
+		hid[i].className =- "hidden";
+	}
 }
