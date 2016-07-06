@@ -52,7 +52,41 @@ label{
 }
 
 #tblExamen th, td {
-	padding: 8px;
+	padding: 3%;
 	text-align:left;
 	border-bottom: 1px solid #ddd;
+}
+
+.fades-in{
+	width: 70%;
+	height: 70%;
+	margin: 15%;
+	z-index: 2;
+	position:fixed;
+	left: 0;
+	top: 0;
+}
+
+#btnDescartar{
+	margin:1% 250%;
+	float: left;
+}
+
+#btnGuardar{
+	margin:1% 450%;
+	float: left;
+}
+
+.scroll{
+	margin: 2% 10%;	
+}
+.scroll table th, td{
+	width:50%;
+	padding: 0 2%;
+	text-align:left;
+	border-bottom: 1px solid #ddd;
+}
+
+.disabled{
+	pointer-events: none; 
 }

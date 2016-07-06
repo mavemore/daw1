@@ -9,8 +9,11 @@ function init(){
 	{
 		window.location.href = "index.html";
 	});
+	$(".fades-in").hide();
 	$("#btnBuscarId").click(cargarNombre);
 	$("#btnBuscar").click(buscarMuestra);
+	$("#btnEditarExam").click(editarExamenes);
+	$(".btnTemporal").click(volverNormal);
 	$(".fechaForm").hide();
 	$(".checkbox label input").click(mostrarFechas);
 	$(function() {
@@ -60,8 +63,7 @@ function cargarNombre(){
 function buscarMuestra(){
 	var hid = $(".hidden");
 	for(i=0;i<hid.length;i++){
-		console.log(hid[i]);
-		hid[i].className =- "hidden";
+		hid[i].classList.remove("hidden");
 	}
 }
 
@@ -87,4 +89,16 @@ function cargarLabs(){
 	};
 	xhttp.open("GET","json/laboratorios.json", true);
 	xhttp.send();
+}
+
+function editarExamenes(){
+	$("#fade").addClass("disabled");
+	$("#fade").fadeTo(500,.25);
+	$(".fades-in").show();
+}
+
+function volverNormal(){
+	$("#fade").removeClass("disabled");
+	$("#fade").fadeTo(500,1);
+	$(".fades-in").hide();
 }
