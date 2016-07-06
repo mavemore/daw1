@@ -1,0 +1,17 @@
+[{"nombre": "Quimica Sanguinea",
+  "datos": [{"prueba":"Glucosa","unidad":"mg/dL", "referencia":"70.00 - 100.00"},
+			{"prueba":"Urea","unidad":"mg/dL", "referencia":"16.0 - 48.5"},
+			{"prueba":"Creatinina","unidad":"mg/dL", "referencia":"0.7 - 1.2"},
+			{"prueba":"Colesterol Total","unidad":"mg/dL", "referencia":"0.0 - 200.0"},
+			{"prueba":"Trigliceridos","unidad":"mg/dL", "referencia":"0.0 - 150.0"},
+			{"prueba":"Colesterol LDL","unidad":"mg/dL", "referencia":"0.0 - 130.0"},
+			{"prueba":"Acido Urico","unidad":"mg/dL", "referencia":"3.4 - 7.0"},
+			{"prueba":"TGO","unidad":"U/l", "referencia":"0 - 40"},
+			{"prueba":"TGP","unidad":"U/l", "referencia":"0 - 41"},
+			{"prueba":"PCR Cuantitativo","unidad":"U/l", "referencia":"0.00 - 5.00"}]
+  },
+  {"nombre": "Biometria Hematica",
+   "datos": [{"prueba":"Leucocitos","unidad":"K/uL", "referencia":"4.50 - 10.00"},
+			{"prueba":"Neutrofilos","unidad":"K/uL", "referencia":"2.20 - 4.80"},
+			{"prueba":"Linfocitos","unidad":"K/uL", "referencia":"1.1 - 3.2"}]
+  }]
