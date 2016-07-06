@@ -1,32 +1,30 @@
 $(document).ready(function(){
 	cargarCentros();
 	cargarLabs();
-	cargarDatosModMuestrasEditar();
+	cargarOpsExamenes();
 	init();
 });
 
 function init(){
+	$(".fechaForm").hide();
+	$(".fades-in").hide();
+	$("#codigoGen").hide();
 	$("header button").click(function()
 	{
 		window.location.href = "index.html";
 	});
-	$(".fades-in").hide();
-	$("#codigoGen").hide();
 	$("#btnBuscarId").click(cargarNombre);
 	$("#btnBuscar").click(buscarMuestra);
 	$("#btnEditarExam").click(editarExamenes);
 	$("#btnCodigo").click(generarCodigo);
-	$(".btnTemporal").click(volverNormal);
-	$("#btnDescartar-edit").click(function(){
-		window.location.href = "mod_muestra.html";
-	});
-	$(".fechaForm").hide();
+	$("#btnDescartar").click(volverNormal);
+	$("#btnGuardar").click(guardarExamenes);
 	$(".checkbox label input").click(mostrarFechas);
 	$(function() {
-		$( "#pickDesde" ).datepicker();
+		$("#pickDesde").datepicker();
 	});
 	$(function() {
-		$( "#pickHasta" ).datepicker();
+		$("#pickHasta").datepicker();
 	});
 }
 
@@ -69,51 +67,43 @@ function cargarNombre(){
 function buscarMuestra(){
 	var hid = $(".hidden");
 	for(i=0;i<hid.length;i++){
-		console.log(hid[i]);
-		hid[i].className =- "hidden";
+		hid[i].classList.remove("hidden");
 	}
 	$(".table td").remove();
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 		if(xhttp.readyState == 4 && xhttp.status == 200){
 			var json = JSON.parse(xhttp.responseText);
-			console.log(json);
 			json.forEach(function(examen){
 				if(examen.codigo == $("#inputBusqueda").val()){
 					var fila = $("<tr>");
 					$(fila).append("<td><input type='checkbox' name='seleccion' value='false'></td>");
-					$(fila).append("<td id='cod'>"+examen.codigo+"</td>");/*.click(crearCookie(examen.codigo));*/
+					$(fila).append("<td>"+examen.codigo+"</td>").click(crearCookie(examen.codigo));
 					$(fila).append("<td>"+examen.fecha.dia+"/"+examen.fecha.mes+"/"+examen.fecha.anio+"</td>");
 					$(fila).append("<td>"+examen.paciente.nombre+" "+examen.paciente.apellido+"</td>");
 					$(fila).append("<td>"+examen.estado+"</td>");
 					$(".table").append(fila);
-					$("#cod").click(function(event){event.preventDefault();$("#cod").click(crearCookie(examen.codigo));});
 				}else if(examen.paciente.cedula == $("#inputBusqueda").val()){
 					var fila = $("<tr>");
 					$(fila).append("<td><input type='checkbox' name='seleccion' value='false'></td>");
-					$(fila).append("<td id='cod'>"+examen.codigo+"</td>");
+					$(fila).append("<td><a href='mod_muestra_editar.html'>"+examen.codigo+"</td>");
 					$(fila).append("<td>"+examen.fecha.dia+"/"+examen.fecha.mes+"/"+examen.fecha.anio+"</td>");
 					$(fila).append("<td>"+examen.paciente.nombre+" "+examen.paciente.apellido+"</td>");
 					$(fila).append("<td>"+examen.estado+"</td>");
 					$(".table").append(fila);
-					$("#cod").click(function(event){event.preventDefault();$("#cod").click(crearCookie(examen.codigo));});
 				}
 				else if(examen.paciente.nombre+" "+examen.paciente.apellido == $("#inputBusqueda").val()){
 					var fila = $("<tr>");
 					$(fila).append("<td><input type='checkbox' name='seleccion' value='false'></td>");
-					$(fila).append("<td id='cod'>"+examen.codigo+"</td>");
+					$(fila).append("<td><a href='mod_muestra_editar.html'>"+examen.codigo+"</td>");
 					$(fila).append("<td>"+examen.fecha.dia+"/"+examen.fecha.mes+"/"+examen.fecha.anio+"</td>");
 					$(fila).append("<td>"+examen.paciente.nombre+" "+examen.paciente.apellido+"</td>");
 					$(fila).append("<td>"+examen.estado+"</td>");
 					$(".table").append(fila);
-					$("#cod").click(function(event){event.preventDefault();$("#cod").click(crearCookie(examen.codigo));});
 				}
-			
-			
 			});
 		}
 	};
-	
 	xhttp.open("GET","json/infoexamenes.json", true);
 	xhttp.send();
 }
@@ -121,7 +111,7 @@ function buscarMuestra(){
 function crearCookie(cod){
 	document.cookie = cod;
 	console.log(document.cookie);
-	window.location.href = "mod_muestra_editar.html";
+	
 }
 
 function mostrarFechas(){
@@ -168,30 +158,34 @@ function generarCodigo(){
 	$("#bcTarget").barcode("1234567890128", "ean13",{barWidth:2, barHeight:30});
 }
 
-function cargarDatosModMuestrasEditar(){
-
-	$(".table td").remove();
+function cargarOpsExamenes(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 		if(xhttp.readyState == 4 && xhttp.status == 200){
 			var json = JSON.parse(xhttp.responseText);
-			var i=0;
-			json.forEach(function(examenes){
-				console.log(document.cookie);
-				if(document.cookie==examenes.codigo){
-					$("#nombrePaciente-edit").val(examenes.paciente.nombre);
-					$("#apellidoPaciente-edit").val(examenes.paciente.apellido);
-					$("#centromed-edit").append($('<option>').text(examenes.centroMed));
-					$("#laboratorio-edit").append($('<option>').text(examenes.laboratorio));
-					var fila = $("<tr>");
-					$(fila).append("<td>"+examenes.fecha.dia+"/"+examenes.fecha.mes+"/"+examenes.fecha.anio+"</td>");
-					$(fila).append("<td>"+examenes.tipo+"</td>");
-					$(".table").append(fila);
-				}
-				i++;
+			json.forEach(function(examen){
+				var fila = $("<tr>");
+				fila.append("<td><input type='checkbox' name='seleccion' value='false'></td>");
+				fila.append($("<td><input type='text' class='objListaExam'></td>"));
+				fila.append($('<td>').text(examen.nombre));
+				fila.children('td:first').click(function(){
+					var fecha = $(this).closest('tr').children('td:nth-child(2)').children('input');
+					fecha.datepicker();
+				});
+				$(".scroll table").append(fila);
 			});
 		}
 	};
-	xhttp.open("GET","json/infoexamenes.json", true);
+	xhttp.open("GET","json/listaexamenes.json", true);
 	xhttp.send();
+}
+
+function guardarExamenes(){
+	volverNormal();
+	/*$("#examTable tr").remove();
+	var row = $("<tr>");
+	var col1 = $("<th>").text("Fecha Toma Muestra");
+	var col2 = $("<th>").text("Tipo Examen");
+	row.append(col1);
+	row.append(col2);*/
 }
