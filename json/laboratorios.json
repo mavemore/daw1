@@ -1,0 +1,25 @@
+[{"nombre": "Lab A - Hematologia",
+  "descripcion": "Pruebas para contar el numero de globulos rojos, blanco, etc."
+  },
+  {"nombre": "Lab B - Coagulacion Sangre",
+   "descripcion": "Pruebas  para verificar la coagulacion de la sangre."
+  },
+  {"nombre": "Lab C - Analisis Quimico",
+   "descripcion": "Pruebas de quimica sanguinea, orina y fluidos corporales."
+  },
+  {"nombre": "Lab D - Microbiologia",
+   "descripcion": "Pruebas de numero, tipo y sensibilidad de las bacterias."
+  },
+  {"nombre": "Lab E - Analisis orina",
+   "descripcion": "Color, apariencia, restos celulares."
+  },
+  {"nombre": "Lab F - Serologia",
+   "descripcion": "VIH, rubeola, parotiditis, embarazo."
+  },
+  {"nombre": "Lab G - Citologia, Histologia, Anatomia patologica",
+   "descripcion": "Deteccion cancer, reacciones quimicas de las celulas para realizar pruebas."
+  },
+  {"nombre": "Lab H - Inmunohematologia, Banco Sangre",
+   "descripcion": "Transfusion de sangre."
+  }
+]
