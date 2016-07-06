@@ -1,4 +1,5 @@
 [{"fecha": {"dia":2,"mes":10,"anio":2016},
-  "examenes": [{"nombre":"Hemograma", "prueba":true, "resultado":"..."}, {"nombre":"Prueba parasitos", "prueba":false, "resultado":""}],
-    "estado":"pendiente"
+  "examenes": [{"nombre":"Hemograma","centroMed":"SaludPrimero Centro","laboratorio":"..."}, {"nombre":"Prueba parasitos","centroMed":"SaludPrimero Urdesa","laboratorio":"..."}],
+    "estado":"pendiente",
+	"paciente":"1721989356"
   }]

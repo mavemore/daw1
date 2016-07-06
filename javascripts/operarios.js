@@ -63,8 +63,52 @@ function cargarNombre(){
 function buscarMuestra(){
 	var hid = $(".hidden");
 	for(i=0;i<hid.length;i++){
-		hid[i].classList.remove("hidden");
+		console.log(hid[i]);
+		hid[i].className =- "hidden";
 	}
+	$(".table td").remove();
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(xhttp.readyState == 4 && xhttp.status == 200){
+			var json = JSON.parse(xhttp.responseText);
+			json.forEach(function(examen){
+				if(examen.codigo == $("#inputBusqueda").val()){
+					var fila = $("<tr>");
+					$(fila).append("<td><input type='checkbox' name='seleccion' value='false'></td>");
+					$(fila).append("<td>"+examen.codigo+"</td>").click(crearCookie(examen.codigo));
+					$(fila).append("<td>"+examen.fecha.dia+"/"+examen.fecha.mes+"/"+examen.fecha.anio+"</td>");
+					$(fila).append("<td>"+examen.paciente.nombre+" "+examen.paciente.apellido+"</td>");
+					$(fila).append("<td>"+examen.estado+"</td>");
+					$(".table").append(fila);
+				}else if(examen.paciente.cedula == $("#inputBusqueda").val()){
+					var fila = $("<tr>");
+					$(fila).append("<td><input type='checkbox' name='seleccion' value='false'></td>");
+					$(fila).append("<td><a href='mod_muestra_editar.html'>"+examen.codigo+"</td>");
+					$(fila).append("<td>"+examen.fecha.dia+"/"+examen.fecha.mes+"/"+examen.fecha.anio+"</td>");
+					$(fila).append("<td>"+examen.paciente.nombre+" "+examen.paciente.apellido+"</td>");
+					$(fila).append("<td>"+examen.estado+"</td>");
+					$(".table").append(fila);
+				}
+				else if(examen.paciente.nombre+" "+examen.paciente.apellido == $("#inputBusqueda").val()){
+					var fila = $("<tr>");
+					$(fila).append("<td><input type='checkbox' name='seleccion' value='false'></td>");
+					$(fila).append("<td><a href='mod_muestra_editar.html'>"+examen.codigo+"</td>");
+					$(fila).append("<td>"+examen.fecha.dia+"/"+examen.fecha.mes+"/"+examen.fecha.anio+"</td>");
+					$(fila).append("<td>"+examen.paciente.nombre+" "+examen.paciente.apellido+"</td>");
+					$(fila).append("<td>"+examen.estado+"</td>");
+					$(".table").append(fila);
+				}
+			});
+		}
+	};
+	xhttp.open("GET","json/infoexamenes.json", true);
+	xhttp.send();
+}
+
+function crearCookie(cod){
+	document.cookie = cod;
+	console.log(document.cookie);
+	
 }
 
 function mostrarFechas(){

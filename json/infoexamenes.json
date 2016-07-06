@@ -1,0 +1,8 @@
+[{"codigo":"000000000001",
+ "fecha":{"dia":1,"mes":12,"anio":2015},
+ "paciente":{"cedula":"1721989356","nombre":"Edgar","apellido":"Moreira"},
+ "estado":"pendiente",
+ "tipo":"Hemograma",
+ "centroMed":"SaludPrimero Centro",
+ "laboratorio":"..."
+}]
